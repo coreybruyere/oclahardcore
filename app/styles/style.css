@@ -1,0 +1,63 @@
+@font-face {
+  src: url("TiltWarp.woff2") format("woff2-variations");
+  font-family: "Tilt Warp";
+  font-style: normal;
+}
+
+:root {
+  font-family: "Tilt Warp", "Adobe NotDef";
+  font-variation-settings: "HROT" 19.8, "VROT" -18;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+.heading-1 {
+  font-size: clamp(2.25rem, 3vw + 1rem, 2.625rem);
+}
+
+h2,
+.heading-2 {
+  font-size: clamp(2rem, 2vw + 1rem, 2.25rem);
+}
+
+h3,
+.heading-3 {
+  font-size: clamp(1.625rem, 2vw + 1rem, 1.875rem);
+}
+
+h4,
+.heading-4 {
+  font-size: clamp(1.25rem, 1vw + 1rem, 1.5rem);
+}
+
+h5,
+.heading-5 {
+  font-size: clamp(1.125rem, 0.5vw + 1rem, 1.25rem);
+}
+
+[role="banner"] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+[role="document"] {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+[role="main"] {
+  flex: 1;
+}
+
+.container {
+  max-width: 56.25rem;
+  margin: auto;
+  width: 100%;
+}
