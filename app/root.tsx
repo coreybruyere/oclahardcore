@@ -6,8 +6,10 @@ import {
   Scripts,
   ScrollRestoration,
 } from "remix";
+import { useEffect } from "react";
 import type { MetaFunction } from "remix";
 
+import { keepTheme } from "./utils";
 import styles from "./styles/style.css";
 
 export const meta: MetaFunction = () => ({
@@ -26,6 +28,9 @@ export function links() {
 }
 
 export default function App() {
+  useEffect(() => {
+    keepTheme();
+  });
   return (
     <html lang="en">
       <head>

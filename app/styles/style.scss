@@ -3,12 +3,14 @@
   font-family: "Tilt Warp";
   font-style: normal;
 }
+
 :root {
   --background-color: #fff;
   --text-color: #121416d8;
   --link-color: #0000ee;
   --link-visited: #551a8b;
   --link-active: #ff0000;
+
   font-family: "Tilt Warp", "Adobe NotDef";
   font-variation-settings: "HROT" 0, "VROT" 0;
   line-height: 1.5;
@@ -38,12 +40,14 @@ body {
 
 a {
   color: var(--link-color);
-}
-a:active {
-  color: var(--link-active);
-}
-a:visited {
-  color: var(--link-visited);
+
+  &:active {
+    color: var(--link-active);
+  }
+
+  &:visited {
+    color: var(--link-visited);
+  }
 }
 
 h1,
@@ -96,7 +100,7 @@ time {
   text-decoration: none;
 }
 
-[role=banner] {
+[role="banner"] {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -104,18 +108,18 @@ time {
   padding-bottom: 1rem;
 }
 
-[role=document] {
+[role="document"] {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-[role=main] {
+[role="main"] {
   flex: 1;
   padding-top: 1rem;
 }
 
-[role=contentinfo] {
+[role="contentinfo"] {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
@@ -126,18 +130,22 @@ time {
   list-style-type: none;
 }
 
-.box-list li {
-  margin-bottom: 1.5rem;
-  padding: 1.5rem;
-  border: 0.125rem solid currentColor;
+.box-list {
+  li {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border: 0.125rem solid currentColor;
+  }
 }
 
 .box-link {
   text-decoration: none;
 }
 
-.box-link .link:hover {
-  text-decoration: underline;
+.box-link .link {
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .logo {
@@ -159,16 +167,20 @@ time {
   padding: 0.5rem;
   border-radius: 9999px;
   border: 0.125rem solid currentColor;
-}
-.theme-toggle .switch {
-  width: 40px;
-  height: 40px;
+
+  .switch {
+    width: 40px;
+    height: 40px;
+  }
 }
 
+// utilities
 .u-m-0 {
   margin: 0;
 }
 
-.u-last-child-m-0 *:last-child {
-  margin: 0;
+.u-last-child-m-0 {
+  *:last-child {
+    margin: 0;
+  }
 }

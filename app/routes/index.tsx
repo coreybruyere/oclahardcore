@@ -2,12 +2,21 @@ import { useLoaderData, json } from "remix";
 import { GraphQLClient, gql } from "graphql-request";
 
 import { Header } from "../components/Header";
+import { ConditionalWrapper } from "../components/ConditionalWrapper";
 import { GRAPH_CMS_URL } from "../utils";
 
 const GetShowsQuery = gql`
   {
     shows {
       title
+      date
+      image {
+        url
+      }
+      link
+      info {
+        html
+      }
     }
   }
 `;
@@ -28,17 +37,40 @@ export default function Index() {
       <Header />
 
       <main role="main" className="container">
-        <ul>
-          {data.shows.map(({ title }: any) => (
+        <ul className="box-list">
+          {data.shows.map(({ title, date, image, link, info }: any) => (
             <li key={title}>
-              <a>{title}</a>
+              <ConditionalWrapper
+                condition={link}
+                wrapper={(children: any) => (
+                  <a className="box-link" href={link}>
+                    {children}
+                  </a>
+                )}
+              >
+                {date && (
+                  <div>
+                    <time>{date}</time>
+                  </div>
+                )}
+                {title && <h2 className="heading-3 link u-m-0">{title}</h2>}
+
+                {info && (
+                  <div
+                    className="u-last-child-m-0"
+                    dangerouslySetInnerHTML={{
+                      __html: info.html,
+                    }}
+                  />
+                )}
+              </ConditionalWrapper>
             </li>
           ))}
         </ul>
       </main>
 
       <footer role="contentinfo" className="container">
-        <small>OC/LA Hardcore!</small>
+        <small className="logo">OC/LA Hardcore!</small>
       </footer>
     </div>
   );
