@@ -51,43 +51,43 @@ a {
 }
 
 h1,
-.heading-1,
+.u-heading-1,
 h2,
-.heading-2,
+.u-heading-2,
 h3,
-.heading-3,
+.u-heading-3,
 h4,
-.heading-4,
+.u-heading-4,
 h5,
-.heading-5,
+.u-heading-5,
 h6,
-.heading-6 {
+.u-heading-6 {
   margin-top: 0;
   font-variation-settings: "HROT" 25, "VROT" -18;
 }
 
 h1,
-.heading-1 {
+.u-heading-1 {
   font-size: clamp(2rem, 3vw + 1rem, 2.625rem);
 }
 
 h2,
-.heading-2 {
+.u-heading-2 {
   font-size: clamp(1.75rem, 2vw + 1rem, 2.25rem);
 }
 
 h3,
-.heading-3 {
+.u-heading-3 {
   font-size: clamp(1.375rem, 2vw + 1rem, 1.875rem);
 }
 
 h4,
-.heading-4 {
+.u-heading-4 {
   font-size: clamp(1rem, 1vw + 1rem, 1.5rem);
 }
 
 h5,
-.heading-5 {
+.u-heading-5 {
   font-size: clamp(0.875rem, 0.5vw + 1rem, 1.25rem);
 }
 
@@ -134,7 +134,7 @@ time {
   li {
     margin-bottom: 1.5rem;
     padding: 1.5rem;
-    border: 0.125rem solid currentColor;
+    border: 0.125rem solid var(--text-color);
   }
 }
 
@@ -166,7 +166,8 @@ time {
   width: 4rem;
   padding: 0.5rem;
   border-radius: 9999px;
-  border: 0.125rem solid currentColor;
+  border: 0.125rem solid var(--text-color);
+  cursor: pointer;
 
   .switch {
     width: 40px;

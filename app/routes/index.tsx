@@ -53,7 +53,7 @@ export default function Index() {
                     <time>{date}</time>
                   </div>
                 )}
-                {title && <h2 className="heading-3 link u-m-0">{title}</h2>}
+                {title && <h2 className="link u-heading-3 u-m-0">{title}</h2>}
 
                 {info && (
                   <div
@@ -70,7 +70,7 @@ export default function Index() {
       </main>
 
       <footer role="contentinfo" className="container">
-        <small className="logo">OC/LA Hardcore!</small>
+        <small className="logo">OC/LA Hardcore Shows</small>
       </footer>
     </div>
   );
