@@ -21,6 +21,13 @@ export const meta: MetaFunction = () => ({
   "og:description":
     "OC/LA Hardcore Shows provides upcoming hardcore shows and events in the greater Los Angeles area (LA and OC).",
   "og:site_name": "OC/LA Hardcore",
+  "twitter:card": "summary_large_image",
+  "twitter:site": "OC/LA Hardcore",
+  "twitter:domain": "oclahardcore.com",
+  "twitter:title": "OC/LA Hardcore Shows",
+  "twitter:description":
+    "OC/LA Hardcore Shows provides upcoming hardcore shows and events in the greater Los Angeles area (LA and OC)..",
+  "twitter:url": "https://oclahardcore.com/",
 });
 
 export function links() {
