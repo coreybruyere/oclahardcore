@@ -14,7 +14,7 @@
 :root,
 :root.light {
   --background-color: #fff;
-  --text-color: #121416d8;
+  --text-color: #151618;
   --link-color: #0000ee;
   --link-visited: #551a8b;
   --link-active: #ff0000;
@@ -136,6 +136,7 @@ time {
 [role="main"] {
   flex: 1;
   padding-top: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 [role="contentinfo"] {
@@ -198,7 +199,8 @@ time {
   max-width: 45rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
 }
 
@@ -207,10 +209,11 @@ time {
   justify-content: space-between;
   align-items: center;
   position: relative;
-  width: 4.25rem;
+  width: 4.5rem;
   height: 2.65rem;
   border-radius: 9999px;
   border: 0.125rem solid var(--text-color);
+  background-color: var(--background-color);
   cursor: pointer;
 
   .switch {
@@ -228,16 +231,16 @@ time {
       width: 2rem;
       height: 2rem;
       border-radius: 100%;
-      background-color: currentColor;
+      background-color: var(--text-color);
       transform: translate(calc(0% + 0.1875rem), -50%);
-      transition: transform 0.35s ease-in-out;
+      transition: all 0.25s ease-in-out;
     }
   }
 
   &[aria-checked="true"] {
     .switch {
       &:after {
-        transform: translate(calc(100% - 0.1875rem), -50%);
+        transform: translate(calc(100%), -50%);
       }
     }
   }
