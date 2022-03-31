@@ -6,15 +6,13 @@ import {
   Scripts,
   ScrollRestoration,
 } from "remix";
-import { useEffect } from "react";
 import type { MetaFunction } from "remix";
 
-import { keepTheme } from "./utils";
 import styles from "./styles/style.css";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "New Remix App",
+  title: "LA/OC HC",
   viewport: "width=device-width,initial-scale=1",
 });
 
@@ -27,10 +25,20 @@ export function links() {
   ];
 }
 
+const setInitialTheme = `
+function getUserPreference() {
+  if(window.localStorage.getItem('theme')) {
+    return window.localStorage.getItem('theme')
+  }
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light'
+}
+document.body.dataset.theme = getUserPreference();
+document.documentElement.className = getUserPreference();
+`;
+
 export default function App() {
-  useEffect(() => {
-    keepTheme();
-  });
   return (
     <html lang="en">
       <head>
@@ -38,6 +46,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <script dangerouslySetInnerHTML={{ __html: setInitialTheme }}></script>
         <Outlet />
         <ScrollRestoration />
         <Scripts />

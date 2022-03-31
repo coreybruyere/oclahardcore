@@ -1,9 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import * as BaseSwitch from "@radix-ui/react-switch";
 
-import { setTheme } from "../utils";
-
-const song = require("../assets/pay-the-toll-2.mp3");
+// const song = require("../assets/pay-the-toll-2.mp3");
 
 // const useAudio = (url: any) => {
 //   const [audio, setAudio] = useState<HTMLAudioElement>();
@@ -31,18 +29,32 @@ const song = require("../assets/pay-the-toll-2.mp3");
 
 export const ThemeToggle = () => {
   // const [playing, toggle] = useAudio(song);
+  // const url = song;
 
+  const [activeTheme, setActiveTheme] = useState("light");
   const [playing, setPlaying] = useState(false);
+  const inactiveTheme = activeTheme === "light" ? "dark" : "light";
 
-  const url = song;
+  useEffect(() => {
+    document.body.dataset.theme = activeTheme;
+  }, [activeTheme]);
+
+  useEffect(() => {
+    const savedTheme = window.localStorage.getItem("theme");
+    savedTheme && setActiveTheme(savedTheme);
+  }, []);
+
+  useEffect(() => {
+    document.body.dataset.theme = activeTheme;
+    document.documentElement.className = activeTheme;
+    window.localStorage.setItem("theme", activeTheme);
+  }, [activeTheme]);
 
   const audioRef = useRef<HTMLAudioElement | undefined>(
     typeof Audio !== "undefined"
       ? new Audio("https://www.w3schools.com/html/horse.ogg")
       : undefined
   );
-
-  console.log(audioRef);
 
   const play = () => {
     setPlaying(true);
@@ -54,41 +66,10 @@ export const ThemeToggle = () => {
     audioRef.current?.pause();
   };
 
-  const [toggleClass, setToggleClass] = useState("dark");
-  let theme = typeof window !== "undefined" && localStorage.getItem("theme");
-
   const handleOnChange = () => {
-    if (
-      typeof window !== "undefined" &&
-      localStorage.getItem("theme") === "theme-dark"
-    ) {
-      setTheme("theme-light");
-      setToggleClass("light");
-      play();
-    } else {
-      setTheme("theme-dark");
-      setToggleClass("dark");
-      pause();
-    }
+    setActiveTheme(inactiveTheme);
+    playing ? pause() : activeTheme === "light" && play();
   };
-  // const [audio] = useState(typeof Audio !== "undefined" && new Audio(song));
-
-  // console.log(audio);
-
-  // const playAudio = () => {
-  //   audio && audio.play();
-  // };
-
-  useEffect(() => {
-    if (
-      typeof window !== "undefined" &&
-      localStorage.getItem("theme") === "theme-dark"
-    ) {
-      setToggleClass("dark");
-    } else if (localStorage.getItem("theme") === "theme-light") {
-      setToggleClass("light");
-    }
-  }, [theme]);
 
   return (
     <>
@@ -97,11 +78,15 @@ export const ThemeToggle = () => {
         <source src={url} type="audio/mpeg"></source>
       </audio> */}
       <BaseSwitch.Root
+        checked={activeTheme === "light" ? false : true}
         onCheckedChange={handleOnChange}
-        className={`theme-toggle ${toggleClass === "light" ? "light" : "dark"}`}
+        aria-label={`Change to ${inactiveTheme} mode`}
+        title={`Change to ${inactiveTheme} mode`}
+        className={`theme-toggle ${activeTheme === "light" ? "light" : "dark"}`}
       >
         <BaseSwitch.Thumb className="switch">
-          {toggleClass === "light" ? "☀️" : "🌙"}
+          <div aria-hidden>☀️</div> <div aria-hidden>🤘</div>
+          {/* {inactiveTheme === "light" ? "☀️" : "🌙"} */}
         </BaseSwitch.Thumb>
       </BaseSwitch.Root>
     </>

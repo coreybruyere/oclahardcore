@@ -1,28 +1,47 @@
 @font-face {
-  src: url("TiltWarp.woff2") format("woff2-variations");
   font-family: "Tilt Warp";
   font-style: normal;
+  src: url("/fonts/TiltWarp.woff2") format("woff2");
 }
 
 :root {
-  --background-color: #fff;
-  --text-color: #121416d8;
-  --link-color: #0000ee;
-  --link-visited: #551a8b;
-  --link-active: #ff0000;
-
   font-family: "Tilt Warp", "Adobe NotDef";
   font-variation-settings: "HROT" 0, "VROT" 0;
   line-height: 1.5;
   font-size: 1rem;
 }
 
-:root.theme-dark {
-  --background-color: #000;
+:root,
+:root.light {
+  --background-color: #fff;
+  --text-color: #121416d8;
+  --link-color: #0000ee;
+  --link-visited: #551a8b;
+  --link-active: #ff0000;
+}
+
+:root.dark {
+  --background-color: #222;
   --text-color: #fff;
   --link-color: #9a9ae0;
   --link-visited: #8a4fc0;
   --link-active: #ff0000;
+
+  body {
+    background-image: url("/sxe-revenge.gif");
+    background-blend-mode: multiply;
+    background-size: 25%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #222;
+    --text-color: #fff;
+    --link-color: #9a9ae0;
+    --link-visited: #8a4fc0;
+    --link-active: #ff0000;
+  }
 }
 
 *,
@@ -120,12 +139,16 @@ time {
 }
 
 [role="contentinfo"] {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
 .box-list {
   margin: 0;
+  margin-bottom: 1.5rem;
   padding: 0;
   list-style-type: none;
 }
@@ -150,7 +173,25 @@ time {
 
 .logo {
   margin: 0;
+  line-height: 1;
   font-variation-settings: "HROT" 25, "VROT" -18;
+
+  .top {
+    font-size: 3rem;
+  }
+
+  .bottom {
+    font-size: 1.25rem;
+  }
+
+  &.small {
+    .top {
+      font-size: 1.5rem;
+    }
+    .bottom {
+      font-size: 0.625rem;
+    }
+  }
 }
 
 .container {
@@ -162,16 +203,43 @@ time {
 }
 
 .theme-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: relative;
-  width: 4rem;
-  padding: 0.5rem;
+  width: 4.25rem;
+  height: 2.65rem;
   border-radius: 9999px;
   border: 0.125rem solid var(--text-color);
   cursor: pointer;
 
   .switch {
-    width: 40px;
-    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1rem;
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 100%;
+      background-color: currentColor;
+      transform: translate(calc(0% + 0.1875rem), -50%);
+      transition: transform 0.35s ease-in-out;
+    }
+  }
+
+  &[aria-checked="true"] {
+    .switch {
+      &:after {
+        transform: translate(calc(100% - 0.1875rem), -50%);
+      }
+    }
   }
 }
 

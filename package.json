@@ -6,7 +6,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
-    "dev": "concurrently \"npm run sass\" \"cross-env NODE_ENV=development netlify dev\"",
+    "dev": "concurrently \"npm run sass\" \"cross-env netlify dev\"",
     "postinstall": "remix setup node",
     "start": "cross-env NODE_ENV=production netlify dev",
     "sass": "sass --watch --no-source-map app/styles:app/styles"
