@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import * as BaseSwitch from "@radix-ui/react-switch";
+import useSound from "use-sound";
 
-// const song = require("../assets/pay-the-toll-2.mp3");
+// const song = require("../pay-the-toll.mp3");
+import song from "../assets/pay-the-toll.mp3";
 
 // const useAudio = (url: any) => {
 //   const [audio, setAudio] = useState<HTMLAudioElement>();
@@ -29,11 +31,13 @@ import * as BaseSwitch from "@radix-ui/react-switch";
 
 export const ThemeToggle = () => {
   // const [playing, toggle] = useAudio(song);
-  // const url = song;
+  const url = song;
 
   const [activeTheme, setActiveTheme] = useState("light");
   const [playing, setPlaying] = useState(false);
   const inactiveTheme = activeTheme === "light" ? "dark" : "light";
+
+  const [play, { stop }] = useSound(song, { volume: 0.25 });
 
   useEffect(() => {
     document.body.dataset.theme = activeTheme;
@@ -51,24 +55,22 @@ export const ThemeToggle = () => {
   }, [activeTheme]);
 
   const audioRef = useRef<HTMLAudioElement | undefined>(
-    typeof Audio !== "undefined"
-      ? new Audio("https://www.w3schools.com/html/horse.ogg")
-      : undefined
+    typeof Audio !== "undefined" ? new Audio(url) : undefined
   );
 
-  const play = () => {
+  const playSong = () => {
     setPlaying(true);
-    audioRef.current?.play();
+    play();
   };
 
-  const pause = () => {
+  const stopSong = () => {
     setPlaying(false);
-    audioRef.current?.pause();
+    stop();
   };
 
   const handleOnChange = () => {
     setActiveTheme(inactiveTheme);
-    playing ? pause() : activeTheme === "light" && play();
+    playing ? stopSong() : activeTheme === "light" && playSong();
   };
 
   return (
