@@ -16,9 +16,11 @@ export const meta: MetaFunction = () => ({
   title: "OC/LA HC",
   description:
     "Los Angeles and Orange County upcoming hardcore shows and events",
+  "og:url": "https://oclahardcore.com/",
   "og:title": "Upcoming OC/LA Hardcore shows",
   "og:description":
     "OC/LA Hardcore Shows provides upcoming hardcore shows and events in the greater Los Angeles area (LA and OC).",
+  "og:site_name": "OC/LA Hardcore",
 });
 
 export function links() {
