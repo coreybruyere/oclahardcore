@@ -59,7 +59,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="𝔅𝔦𝔱𝔠𝔥 𝔞𝔰𝔰 𝔳𝔢𝔫𝔲𝔢𝔰 𝔥𝔞𝔳𝔢 𝔳𝔞𝔵 𝔯𝔢𝔮𝔲𝔦𝔯𝔢𝔪𝔢𝔫𝔱𝔰">
         <script dangerouslySetInnerHTML={{ __html: setInitialTheme }}></script>
         <Outlet />
         <ScrollRestoration />
