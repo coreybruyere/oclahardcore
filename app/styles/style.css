@@ -169,16 +169,17 @@ time {
   font-variation-settings: "HROT" 25, "VROT" -18;
 }
 .logo .top {
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 .logo .bottom {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+  font-variation-settings: "HROT" 0, "VROT" 0;
 }
 .logo.small .top {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 .logo.small .bottom {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
 }
 
 .container {
@@ -197,6 +198,7 @@ time {
   position: relative;
   width: 4.5rem;
   height: 2.65rem;
+  padding: 0 0.25rem;
   border-radius: 9999px;
   border: 0.125rem solid var(--text-color);
   background-color: var(--background-color);
@@ -219,7 +221,7 @@ time {
   border-radius: 100%;
   background-color: var(--text-color);
   transform: translate(calc(0% + 0.1875rem), -50%);
-  transition: all 0.25s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 .theme-toggle[aria-checked=true] .switch:after {
   transform: translate(100%, -50%);

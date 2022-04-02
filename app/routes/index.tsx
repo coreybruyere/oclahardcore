@@ -47,6 +47,7 @@ export default function Index() {
       <Header />
 
       <main role="main" className="container">
+        <h2 className="u-m-0">Upcoming Shows</h2>
         <ul className="box-list">
           {data.shows.map(({ title, date, image, link, info }: any) => {
             return (
@@ -65,9 +66,7 @@ export default function Index() {
                         <time>{date}</time>
                       </div>
                     )}
-                    {title && (
-                      <h2 className="link u-heading-3 u-m-0">{title}</h2>
-                    )}
+                    {title && <h3 className="link  u-m-0">{title}</h3>}
 
                     {info && (
                       <div
