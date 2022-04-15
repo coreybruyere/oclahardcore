@@ -18,6 +18,18 @@
   --link-visited: #551a8b;
   --link-active: #ff0000;
 }
+:root body:after,
+:root.light body:after {
+  content: "";
+  background-image: url("/sxe-revenge.gif");
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
 
 :root.dark {
   --background-color: #222;

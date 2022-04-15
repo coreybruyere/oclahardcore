@@ -18,6 +18,21 @@
   --link-color: #0000ee;
   --link-visited: #551a8b;
   --link-active: #ff0000;
+
+  body {
+    // Hack to load bg image on load, before them is toggled to dark mode
+    &:after {
+      content: "";
+      background-image: url("/sxe-revenge.gif");
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+  }
 }
 
 :root.dark {
