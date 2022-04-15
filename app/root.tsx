@@ -65,20 +65,6 @@ export default function App() {
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
-        <script>
-          if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!==
-          0)
-          {fetch(
-            "https://counter.dev/track?" +
-              new URLSearchParams({
-                referrer: document.referrer,
-                screen: screen.width + "x" + screen.height,
-                user: "ocla",
-                utcoffset: "-7",
-              })
-          )}
-          ;sessionStorage.setItem("_swa","1");
-        </script>
         <script
           data-host="https://microanalytics.io"
           data-dnt="false"
