@@ -1,4 +1,8 @@
-# Welcome to Remix!
+#OC/LA Hardcore
+
+Content stored at GraphCMS
+
+## Welcome to Remix!
 
 - [Remix Docs](https://remix.run/docs)
 
