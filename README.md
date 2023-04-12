@@ -1,6 +1,6 @@
 # OC/LA Hardcore
 
-Content stored at [GraphCMS](https://hygraph.com/)
+Content stored at [Hygraph CMS](https://hygraph.com/)
 
 ## Welcome to Remix!
 
